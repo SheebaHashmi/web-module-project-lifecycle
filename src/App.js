@@ -18,7 +18,7 @@ class App extends React.Component {
         ...this.state,
         userInfo:res.data
       })
-    }) // end of response 
+    }) 
     .catch(err => console.log(err))
   }
   componentDidUpdate(prevProps, prevState){
@@ -29,6 +29,7 @@ class App extends React.Component {
           ...this.state,
           followers: res.data
         })
+        console.log("Followers: ",this.state.followers)
       })
       .catch(err => console.log(err))
     }

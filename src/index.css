@@ -17,3 +17,17 @@ code {
 .user-container img {
   width: 15%;
 }
+.followers-container{
+  display: flex;
+  flex-direction: column;
+  margin:0% 5%;
+  justify-content: center;
+  /* width:87%; */
+  /* flex-wrap: wrap; */
+}
+.follower-card{
+  /* width:20%; */
+}
+.follower-card img{
+ height:50%;
+}

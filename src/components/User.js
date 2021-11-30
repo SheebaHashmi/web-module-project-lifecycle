@@ -8,7 +8,7 @@ class User extends React.Component {
         <div className="user-container">
             <img src={this.props.userInfo.avatar_url}/>
             <div className="user-content">
-            <h1>{this.props.user}</h1>
+            <h1>{this.props.userInfo.login}</h1>
             <h2>Total Repos: {this.props.userInfo.public_repos}</h2>
             <h2>Total Followers: {this.props.userInfo.followers}</h2>
             </div>

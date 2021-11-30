@@ -6,7 +6,7 @@ import axios from 'axios';
 
 class App extends React.Component {
   state = {
-    username:'',
+    username:'sheebahashmi',
     userInfo:{},
     followers: []
   }
@@ -17,23 +17,23 @@ class App extends React.Component {
       this.setState({
         ...this.state,
         userInfo:res.data
-      },
-      
-      () => axios.get("https://api.github.com/users/sheebahashmi/followers")
+      })
+    }) // end of response 
+    .catch(err => console.log(err))
+  }
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.userInfo !== this.state.userInfo){
+      axios.get(`https://api.github.com/users/${this.state.username}/followers`)
       .then(res => {
         this.setState({
           ...this.state,
           followers: res.data
         })
-        console.log("Folowers => ",res.data)
       })
       .catch(err => console.log(err))
-      
-      )
-    }) // end of response 
-    .catch(err => console.log(err))
+    }
   }
-  
+
   handleClick = (e) => {
     e.preventDefault();
     axios.get(`https://api.github.com/users/${this.state.username}`)
@@ -41,20 +41,10 @@ class App extends React.Component {
       this.setState({
         ...this.state,
         userInfo:res.data
-      },
-      () => axios.get(`https://api.github.com/users/${this.state.username}/followers`)
-      .then(res => {
-        this.setState({
-          ...this.state,
-          followers: res.data
-        })
-        console.log("Folowers => ",res.data)
       })
-      .catch(err => console.log(err))
-      )
     })
     .catch(err => console.log(err))  
-}
+  }
 
   handleChange = (e) => {
     this.setState({

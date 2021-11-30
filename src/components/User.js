@@ -1,20 +1,18 @@
 import React from 'react';
 
 class User extends React.Component {
-    state = {
-        user:'Sheeba hashmi'
-    }
-    
-  render() {
-    return(
-    <div className="user-container">
-        <img src="https://avatars.githubusercontent.com/u/64197466?v=4"/>
-        <div className="user-content">
-        <h1>{this.state.user}</h1>
-        <h2>Total Repos:34</h2>
-        <h2>Total Followers:18</h2>
-        </div>
-    </div>);
+
+    render() {
+    //   const userInfo = this.props.userInfo;
+        return(
+        <div className="user-container">
+            <img src={this.props.userInfo.avatar_url}/>
+            <div className="user-content">
+            <h1>{this.props.user}</h1>
+            <h2>Total Repos: {this.props.userInfo.public_repos}</h2>
+            <h2>Total Followers: {this.props.userInfo.followers}</h2>
+            </div>
+        </div>);
   }
 }
 
